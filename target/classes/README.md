@@ -1,5 +1,4 @@
-
- # Introduction
+# Introduction
 
 Hi there 👋
 This small repository is built to understand the concept of caching, specifically focusing on In-Memory Caching and Disk Caching.

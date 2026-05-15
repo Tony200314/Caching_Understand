@@ -31,24 +31,24 @@ public class Memory {
         return false;
     }
 
-    public Product fetchProduct(String productname) {
+    public Product fetchProduct(Product product) {
 
         // CACHE HIT
-        for (Product product : Cache) {
-            if (product.getProductname().equals(productname)) {
-                System.out.println("Cache HIT: " + productname);
+        for (Product product2 : Cache) {
+            if (product2.getProductname().equals(product.getProductname())) {
+                System.out.println("Cache HIT: " + product.getProductname());
                 return product;
             }
         }
 
         // CACHE MISS → DATABASE
-        Integer price = Database.get(productname);
+        Integer price = Database.get(product.getPrice());
 
         if (price == null) {
             return null;
         }
 
-        Product newProduct = new Product(productname, price);
+        Product newProduct = new Product(product.getProductname(), price);
 
         Cache.add(newProduct);
 
